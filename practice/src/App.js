@@ -1,12 +1,20 @@
-import React from "react";
-import Layout from "./components/Layout";
+import React, { useState } from "react";
+
+function Child(props) {
+  return <div>{props.grandFatherName}</div>;
+}
+
+function Mother(props) {
+  return <Child grandFatherName={props.grandFatherName} />;
+}
+
+function GrandFather() {
+  const [name, setName] = useState("김할아"); // state를 생성
+  return <Mother grandFatherName={name} />;
+}
 
 function App() {
-  return (
-    <div>
-    <Layout/> 
-    <div>여긴 App의 컨텐츠가 들어갑니다.</div>
-    </div>
-  );
+  return <GrandFather />;
 }
+
 export default App;
