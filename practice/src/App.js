@@ -1,27 +1,41 @@
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
-import { useRef, useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(0);
+  const idRef = useRef("");
+  const pwRef = useRef("");
 
-  const plusStateCountButtonHandler = () => {
-    setCount(count + 1);
+  const [id, setId] = useState("");
+
+  const onIdChangeHandler = (event) => {
+    setId(event.target.value);
   };
 
-  const plusRefCountButtonHandler = () => {
-    countRef.current++;
-  };
+  // 렌더링이 될 때
+  useEffect(() => {
+    idRef.current.focus();
+  }, []);
+
+  // 왜 useEffect 안에 놓았을까요?
+  useEffect(() => {
+    if (id.length >= 10) {
+      pwRef.current.focus();
+    }
+  }, [id]);
 
   return (
     <>
       <div>
-        state 영역입니다. {count} <br />
-        <button onClick={plusStateCountButtonHandler}>state 증가</button>
+        아이디 :
+        <input
+          type="text"
+          ref={idRef}
+          value={id}
+          onChange={onIdChangeHandler}
+        />
       </div>
       <div>
-        ref 영역입니다. {countRef.current} <br />
-        <button onClick={plusRefCountButtonHandler}>ref 증가</button>
+        비밀번호 : <input type="password" ref={pwRef} />
       </div>
     </>
   );
