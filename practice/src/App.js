@@ -1,17 +1,16 @@
 import React from "react";
 
 function Child(props) {
-  console.log(props)
-  return <div>{props.motherName}</div>;
+  return <div>{props.grandFatherName}</div>;
 }
 
-function Mother() {
-  const name = '유서니';
-  return <Child motherName={name}/>;
+function Mother(props) {
+  return <Child grandFatherName={props.grandFatherName} />;
 }
 
 function GrandFather() {
-  return <Mother />;
+  const name = "유서니";
+  return <Mother grandFatherName={name} />;
 }
 
 function App() {
