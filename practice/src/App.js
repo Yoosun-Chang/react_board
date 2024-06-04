@@ -1,19 +1,16 @@
 import React from "react";
 
-function Child() {
-  return <div>연결 성공</div>;
-}
-
-function Mother() {
-  return <Child />;
-}
-
-function GrandFather() {
-  return <Mother />;
-}
-
 function App() {
-  return <GrandFather />;
+  const styles = {
+    color: 'orange',
+    fontSize: '20px'
+  };
+
+  return (
+    <div className="App">
+      <p style={styles}>orange</p>
+    </div>
+  );
 }
 
 export default App;
