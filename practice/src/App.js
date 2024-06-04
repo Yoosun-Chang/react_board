@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 
-function App() {
-  const [name, setName] = useState("길동이");
+const App = () => {
+  const [value, setValue] = useState("");
 
-  function onClickHandler() {
-    setName("누렁이");
-  }
+  const onChangeHandler = (event) => {
+    const inputValue = event.target.value;
+    setValue(inputValue);
+  };
+
+	console.log(value) // value가 어떻게 변하는지 한번 콘솔로 볼까요?
 
   return (
     <div>
-      {name}
-      <button onClick={onClickHandler}>버튼</button>
+      <input type="text" onChange={onChangeHandler} value={value} />
     </div>
   );
-}
+};
 
 export default App;
