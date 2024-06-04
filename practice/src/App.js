@@ -1,31 +1,14 @@
-import React,{useState} from 'react';
-import './App.css'; 
-
-function CustomButton(props) {
-  const {color, onClick, children} = props
-  
-    if (color)
-      return (
-        <button
-          style={{ background: color, color: "white" }}
-          onClick={onClick}
-        >
-          {children}
-        </button>
-      );
-  
-    return <button onClick={onClick}>{props.children}</button>;
-  }
-
+import React, {useState} from 'react';
+import Button from './components/Button.js';
 
 function User(props) {
   return (
-    <div className="square-style">
+    <div className="user-card">
       <div>{props.user.age}살 - </div>
       <div>{props.user.name}</div>
-      <CustomButton color="red" onClick={() => props.handleDelete(props.user.id)}>
+      <Button onClick={() => props.handleDelete(props.user.id)}>
         삭제하기
-      </CustomButton>
+      </Button>
     </div>
   );
 }
@@ -37,7 +20,7 @@ const App = () => {
     { id: 3, age: 21, name: '김유정' },
     { id: 4, age: 29, name: '구교환' },
   ]);
-  const [name, setName] = useState('');
+  const [name, setName] = useState(''); 
   const addUserHandler = () => {
     const newUser = {
       id: users.length + 1,
@@ -61,7 +44,7 @@ const App = () => {
       {users.map((user) => {
         return <User user={user} key={user.id} handleDelete={deleteUserHandler}/>;
       })}
-      <CustomButton color="green" onClick={addUserHandler}>추가하기</CustomButton>
+      <Button onClick={addUserHandler}>추가하기</Button>
     </div>
   );
 };
