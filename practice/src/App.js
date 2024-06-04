@@ -1,42 +1,18 @@
-import React, {useState} from 'react';
-import "./App.css"
-import Button from './components/Button.js';
-import User from './components/User.js';
+import React from "react";
+import styled from "styled-components";
+
+// styled키워드를 사용해서 styled-components 방식대로 컴포넌트를 만듭니다. 
+const StBox = styled.div`
+	// 그리고 이 안에 스타일 코드를 작성합니다. 스타일 코드는 우리가 알고 있는 css와 동일합니다.
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+  margin: 20px;
+`;
 
 const App = () => {
-  const [users, setUsers] = useState([
-    { id: 1, age: 30, name: '송중기' },
-    { id: 2, age: 24, name: '송강' },
-    { id: 3, age: 21, name: '김유정' },
-    { id: 4, age: 29, name: '구교환' },
-  ]);
-  const [name, setName] = useState(''); 
-  const addUserHandler = () => {
-    const newUser = {
-      id: users.length + 1,
-      age: 30,
-      name: name,
-    };
-
-    setUsers([...users, newUser]);
-  };
-	const deleteUserHandler = (id) => {
-    const newUserList = users.filter((user) => user.id !== id);
-    setUsers(newUserList);
-  };
-  return (
-    <div className="app-container">
-      <input
-        placeholder="이름을 입력해주세요"
-        value={name}
-        onChange={(e) => setName(e.target.value)} 
-      />
-      {users.map((user) => {
-        return <User user={user} key={user.id} handleDelete={deleteUserHandler}/>;
-      })}
-      <Button onClick={addUserHandler}>추가하기</Button>
-    </div>
-  );
+	// 그리고 우리가 만든 styled-components를 JSX에서 html 태그를 사용하듯이 사용합니다.
+  return <StBox>박스</StBox>;
 };
 
 export default App;
