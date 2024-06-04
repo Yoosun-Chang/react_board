@@ -1,33 +1,18 @@
 import React, { useState } from "react";
 
-function Child(props) {
+function App() {
+  const [name, setName] = useState("길동이");
+
+  function onClickHandler() {
+    setName("누렁이");
+  }
+
   return (
     <div>
-      <button
-        onClick={() => {
-          props.setName("박할아");
-        }}
-      >
-        할아버지 이름 바꾸기
-      </button>
-      <div>{props.grandFatherName}</div>
+      {name}
+      <button onClick={onClickHandler}>버튼</button>
     </div>
   );
-}
-
-function Mother(props) {
-  return (
-    <Child grandFatherName={props.grandFatherName} setName={props.setName} />
-  );
-}
-
-function GrandFather() {
-  const [name, setName] = useState("김할아");
-  return <Mother grandFatherName={name} setName={setName} />;
-}
-
-function App() {
-  return <GrandFather />;
 }
 
 export default App;
