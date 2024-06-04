@@ -1,10 +1,12 @@
 import React from "react";
-
-function User(props) {
-  return <div>{props.children}</div>;
-}
+import Layout from "./components/Layout";
 
 function App() {
-  return <User>안녕하세요</User>;
+  return (
+    <div>
+    <Layout/> 
+    <div>여긴 App의 컨텐츠가 들어갑니다.</div>
+    </div>
+  );
 }
 export default App;
