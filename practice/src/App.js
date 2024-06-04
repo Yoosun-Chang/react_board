@@ -1,17 +1,7 @@
 import React, {useState} from 'react';
+import "./App.css"
 import Button from './components/Button.js';
-
-function User(props) {
-  return (
-    <div className="user-card">
-      <div>{props.user.age}살 - </div>
-      <div>{props.user.name}</div>
-      <Button onClick={() => props.handleDelete(props.user.id)}>
-        삭제하기
-      </Button>
-    </div>
-  );
-}
+import User from './components/User.js';
 
 const App = () => {
   const [users, setUsers] = useState([
