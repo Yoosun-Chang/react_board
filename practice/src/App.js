@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from "react";
+import "./App.css";
+import { useRef, useState } from "react";
 
-const App = () => {
-  const [value, setValue] = useState("");
-  useEffect(() => {
-    console.log("hello useEffect");
-  }, [value]); 
+function App() {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+
+  const plusStateCountButtonHandler = () => {
+    setCount(count + 1);
+  };
+
+  const plusRefCountButtonHandler = () => {
+    countRef.current++;
+  };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={value}
-        onChange={(event) => {
-          setValue(event.target.value);
-        }}
-      />
-    </div>
+    <>
+      <div>
+        state 영역입니다. {count} <br />
+        <button onClick={plusStateCountButtonHandler}>state 증가</button>
+      </div>
+      <div>
+        ref 영역입니다. {countRef.current} <br />
+        <button onClick={plusRefCountButtonHandler}>ref 증가</button>
+      </div>
+    </>
   );
 }
 
