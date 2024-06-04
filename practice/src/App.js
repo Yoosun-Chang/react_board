@@ -1,46 +1,22 @@
-import React, { useState, useCallback } from "react";
-import Box1 from "./components/Box1";
-import Box2 from "./components/Box2";
-import Box3 from "./components/Box3";
-
-const boxesStyle = {
-  display: "flex",
-  marginTop: "10px",
-};
+import "./App.css";
+import HeavyComponent from "./components/HeavyComponent";
 
 function App() {
-  console.log("App 컴포넌트가 렌더링되었습니다!");
-
-  const [count, setCount] = useState(0);
-
-  // 1을 증가시키는 함수
-  const onPlusButtonClickHandler = () => {
-    setCount(count + 1);
+  const navStyleObj = {
+    backgroundColor: "yellow",
+    marginBottom: "30px",
   };
 
-  // 1을 감소시키는 함수
-  const onMinusButtonClickHandler = () => {
-    setCount(count - 1);
+  const footerStyleObj = {
+    backgroundColor: "green",
+    marginTop: "30px",
   };
-
-	// count를 초기화해주는 함수
-  const initCount = useCallback(() => {
-    console.log(`[COUNT 변경] ${count}에서 0으로 변경되었습니다.`);
-    setCount(0);
-  }, [count]);
-
 
   return (
     <>
-      <h3>카운트 예제입니다!</h3>
-      <p>현재 카운트 : {count}</p>
-      <button onClick={onPlusButtonClickHandler}>+</button>
-      <button onClick={onMinusButtonClickHandler}>-</button>
-      <div style={boxesStyle}>
-        <Box1 initCount={initCount} />
-        <Box2 />
-        <Box3 />
-      </div>
+      <nav style={navStyleObj}>네비게이션 바</nav>
+      <HeavyComponent />
+      <footer style={footerStyleObj}>푸터 영역이에요</footer>
     </>
   );
 }
