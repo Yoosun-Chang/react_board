@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Box1 from "./components/Box1";
 import Box2 from "./components/Box2";
 import Box3 from "./components/Box3";
@@ -23,6 +23,13 @@ function App() {
     setCount(count - 1);
   };
 
+	// count를 초기화해주는 함수
+  const initCount = useCallback(() => {
+    console.log(`[COUNT 변경] ${count}에서 0으로 변경되었습니다.`);
+    setCount(0);
+  }, [count]);
+
+
   return (
     <>
       <h3>카운트 예제입니다!</h3>
@@ -30,7 +37,7 @@ function App() {
       <button onClick={onPlusButtonClickHandler}>+</button>
       <button onClick={onMinusButtonClickHandler}>-</button>
       <div style={boxesStyle}>
-        <Box1 />
+        <Box1 initCount={initCount} />
         <Box2 />
         <Box3 />
       </div>
