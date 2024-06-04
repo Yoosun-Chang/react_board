@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-const App = () => {
-  const [value, setValue] = useState("");
+function App() {
+  const [dogs, setDogs] = useState(["말티즈"]);
 
-  const onChangeHandler = (event) => {
-    const inputValue = event.target.value;
-    setValue(inputValue);
-  };
+  function onClickHandler() {
+		// spread operator(전개 연산자)를 이용해서 dogs를 복사합니다. 
+	  // 그리고 나서 항목을 추가합니다.
+    setDogs([...dogs, "시고르자브르종"]);
+  }
 
-	console.log(value) // value가 어떻게 변하는지 한번 콘솔로 볼까요?
-
+  console.log(dogs);
   return (
     <div>
-      <input type="text" onChange={onChangeHandler} value={value} />
+      <button onClick={onClickHandler}>버튼</button>
     </div>
   );
-};
+}
 
 export default App;
