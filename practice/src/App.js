@@ -1,16 +1,21 @@
 import React from "react";
 
-function App() {
-  const styles = {
-    color: 'orange',
-    fontSize: '20px'
-  };
+function Child(props) {
+  console.log(props)
+  return <div>연결 성공</div>;
+}
 
-  return (
-    <div className="App">
-      <p style={styles}>orange</p>
-    </div>
-  );
+function Mother() {
+  const name = '유서니';
+  return <Child motherName={name}/>;
+}
+
+function GrandFather() {
+  return <Mother />;
+}
+
+function App() {
+  return <GrandFather />;
 }
 
 export default App;
