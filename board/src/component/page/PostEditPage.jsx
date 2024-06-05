@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { dataUpdate } from '../../redux/modules/boardReducer';
 import styled from 'styled-components';
@@ -27,7 +27,6 @@ const Container = styled.div`
 `;
 
 function PostEditPage(props) {
-    const { postId } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
 

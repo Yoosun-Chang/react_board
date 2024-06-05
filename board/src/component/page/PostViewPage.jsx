@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../ui/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectRow, dataUpdate, dataDelete } from '../../redux/modules/boardReducer';
+import { dataDelete } from '../../redux/modules/boardReducer';
 
 const Wrapper = styled.div`
     padding: 16px;
