@@ -1,35 +1,20 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addNumber, minusNumber } from "./redux/modules/counter";
+import TodoListContainer from "./components/TodoListContainer.jsx";
+import styled from "styled-components";
+import AddForm from "./components/AddForm.jsx";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const [number, setNumber] = useState(0);
-  const globalNumber = useSelector((state) => state.counter.number);
-
-  const onChangeHandler = (evnet) => {
-    const { value } = evnet.target;
-    setNumber(+value);
-  };
-
-  const onClickAddNumberHandler = () => {
-    dispatch(addNumber(number));
-  };
-
-  // [퀴즈 답]
-  const onClickMinusNumberHandler = () => {
-    dispatch(minusNumber(number));
-  };
-
   return (
-    <div>
-      <div>{globalNumber}</div>
-      <input type="number" onChange={onChangeHandler} />
-      <button onClick={onClickAddNumberHandler}>더하기</button>
-      <button onClick={onClickMinusNumberHandler}>빼기</button>
-    </div>
+    <StContainer>
+      <AddForm />
+      <TodoListContainer />
+    </StContainer>
   );
 };
 
 export default App;
+
+const StContainer = styled.section`
+  max-width: 1440px;
+  margin: 0 auto;
+`;
