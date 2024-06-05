@@ -1,20 +1,8 @@
 import React from "react";
-import TodoListContainer from "./components/TodoListContainer.jsx";
-import styled from "styled-components";
-import AddForm from "./components/AddForm.jsx";
+import Router from "./shared/Router";
 
-const App = () => {
-  return (
-    <StContainer>
-      <AddForm />
-      <TodoListContainer />
-    </StContainer>
-  );
-};
+function App() {
+  return <Router />;
+}
 
 export default App;
-
-const StContainer = styled.section`
-  max-width: 1440px;
-  margin: 0 auto;
-`;
