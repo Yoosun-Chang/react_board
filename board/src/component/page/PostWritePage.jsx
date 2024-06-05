@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { dataSave } from '../../redux/modules/boardReducer';
 import styled from 'styled-components';
 import TextInput from '../ui/TextInput';
 import Button from '../ui/Button';
@@ -30,30 +32,45 @@ function PostWritePage(props) {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
+    const dispatch = useDispatch();
+
+    const onSave = () => {
+        const _inputData = {
+            title: title,
+            content: content
+        };
+        dispatch(dataSave(_inputData));
+        setTitle('');
+        setContent('');
+        navigate('/');
+    };
+
+    const handleTitle = (e) => {
+        setTitle(e.target.value);
+    };
+
+    const handleContent = (e) => {
+        setContent(e.target.value);
+    };
+
     return (
         <Wrapper>
             <Container>
-                    <TextInput
-                        height={20}
-                        value={title}
-                        onChange={(event) => {
-                            setTitle(event.target.value);
-                        }}
-                    />
+                <TextInput
+                    height={20}
+                    value={title}
+                    onChange={handleTitle}
+                />
 
-                    <TextInput
-                        height={380}
-                        value={content}
-                        onChange={(event) => {
-                            setContent(event.target.value);
-                        }}
-                    />
-                    <Button
-                        title='글 작성하기'
-                        onClick={() => {
-                            navigate('/');
-                        }}
-                    />
+                <TextInput
+                    height={380}
+                    value={content}
+                    onChange={handleContent}
+                />
+                <Button
+                    title='글 작성하기'
+                    onClick={onSave}
+                />
             </Container>
         </Wrapper>
     );

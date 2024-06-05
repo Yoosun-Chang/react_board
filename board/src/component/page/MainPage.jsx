@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import PostList from '../list/PostList';
 import Button from '../ui/Button';
 import data from '../../data.json';
+import { useDispatch } from 'react-redux';
+import { selectRow } from '../../redux/modules/boardReducer'
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -25,6 +27,12 @@ const Container = styled.div`
 
 function MainPage(props) {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+ 
+    const handleClickItem = (rowData) => {
+        dispatch(selectRow(rowData.id));
+        navigate(`/post/${rowData.id}`);
+    }
 
     return (
         <Wrapper>
@@ -38,9 +46,7 @@ function MainPage(props) {
 
                 <PostList
                     posts={data}
-                    onClickItem={(item) => {
-                        navigate(`/post/${item.id}`);
-                    }}
+                    onClickItem={handleClickItem}
                 />
             </Container>
         </Wrapper>

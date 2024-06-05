@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PostListItem from './PostListItem';
+import { useSelector } from 'react-redux';
 
 const Wrapper = styled.div`
     display: flex;
@@ -13,22 +14,29 @@ const Wrapper = styled.div`
     }
 `;
 
-function PostList(props) {
-    const { posts, onClickItem } = props;
+const Message = styled.p`
+    font-size: 18px;
+    color: grey;
+`;
+
+function PostList({ onClickItem }) {
+    const inputData = useSelector(state => {
+        return state.boardReducer.inputData;
+    });
 
     return (
         <Wrapper>
-            {posts.map((post, index) => {
-                return (
+            {inputData.length === 0 ? (
+                <Message>작성된 목록이 없습니다.</Message>
+            ) : (
+                inputData.map((rowData) => (
                     <PostListItem
-                        key={post.id}
-                        post={post}
-                        onClick={() => {
-                            onClickItem(post);
-                        }}
+                        key={rowData.id}
+                        post={rowData.title}
+                        onClick={() => onClickItem(rowData)}
                     />
-                );
-            })}
+                ))
+            )}
         </Wrapper>
     );
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../ui/Button';
-import data from '../../data.json';
+import { useSelector } from 'react-redux'
 
 const Wrapper = styled.div `
     padding: 16px;
@@ -41,12 +41,9 @@ const ContentText = styled.p `
 
 function PostViewPage(props) {
     const navigate = useNavigate();
-    const {postId} = useParams();
 
-    const post = data.find((item) => {
-        return item.id === parseInt(postId);
-    });
-
+    const { selectRowData } = useSelector(state => state.boardReducer)
+    console.log(selectRowData)
     return (
         <Wrapper>
             <Container>
@@ -56,8 +53,8 @@ function PostViewPage(props) {
                         navigate('/');
                     }}/>
                 <PostContainer>
-                    <TitleText>{post.title}</TitleText>
-                    <ContentText>{post.content}</ContentText>
+                    <TitleText>{selectRowData.title}</TitleText>
+                    <ContentText>{selectRowData.content}</ContentText>
                 </PostContainer>
 
             </Container>
