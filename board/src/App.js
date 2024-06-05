@@ -9,6 +9,7 @@ import styled from "styled-components";
 import MainPage from './component/page/MainPage';
 import PostWritePage from './component/page/PostWritePage';
 import PostViewPage from './component/page/PostViewPage';
+import PostEditPage from './component/page/PostEditPage';
 
 const MainTitleText = styled.p`
     font-size: 24px;
@@ -24,6 +25,7 @@ function App(props) {
                 <Route index element={<MainPage />} />
                 <Route path="post-write" element={<PostWritePage />} />
                 <Route path="post/:postId" element={<PostViewPage />} />
+                <Route path="post-edit/:postId" element={<PostEditPage />} />
             </Routes>
         </BrowserRouter>
     );
