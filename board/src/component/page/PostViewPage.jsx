@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../ui/Button';
@@ -44,7 +44,7 @@ function PostViewPage(props) {
     const {postId} = useParams();
 
     const post = data.find((item) => {
-        return item.id == postId;
+        return item.id === postId;
     });
 
     return (
