@@ -14,9 +14,11 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-    width: 100%;
-    max-width: 720px;
-
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center; 
     :not(:last-child) {
         margin-bottom: 16px;
     }
@@ -31,28 +33,27 @@ function PostWritePage(props) {
     return (
         <Wrapper>
             <Container>
-                <TextInput
-                    height={20}
-                    value={title}
-                    onChange={(event) => {
-                        setTitle(event.target.value);
-                    }}
-                />
+                    <TextInput
+                        height={20}
+                        value={title}
+                        onChange={(event) => {
+                            setTitle(event.target.value);
+                        }}
+                    />
 
-                <TextInput
-                    height={480}
-                    value={content}
-                    onChange={(event) => {
-                        setContent(event.target.value);
-                    }}
-                />
-
-                <Button
-                    title='글 작성하기'
-                    onClick={() => {
-                        navigate('/');
-                    }}
-                />
+                    <TextInput
+                        height={380}
+                        value={content}
+                        onChange={(event) => {
+                            setContent(event.target.value);
+                        }}
+                    />
+                    <Button
+                        title='글 작성하기'
+                        onClick={() => {
+                            navigate('/');
+                        }}
+                    />
             </Container>
         </Wrapper>
     );
