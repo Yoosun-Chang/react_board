@@ -40,7 +40,6 @@ function PostEditPage(props) {
             title: title,
             content: content
         }
-        console.log('clickSave :: ', _inputData)
         dispatch(dataUpdate(_inputData))
         setTitle('')
         setContent('')
