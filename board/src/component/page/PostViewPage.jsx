@@ -49,14 +49,11 @@ function PostViewPage(props) {
     const { selectRowData } = useSelector(state => state.boardReducer);
 
     const handleEdit = () => {
-        // 수정 페이지로 이동 및 선택된 데이터의 ID 전달
         navigate(`/post-edit/${selectRowData.id}`);
     };
 
     const handleDelete = () => {
-        // 선택된 데이터의 ID를 전달하여 삭제 액션 디스패치
         dispatch(dataDelete(selectRowData.id));
-        // 삭제 후 메인 페이지로 이동
         navigate('/');
     };
 
