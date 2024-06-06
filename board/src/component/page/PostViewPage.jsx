@@ -40,6 +40,14 @@ const ContentText = styled.p`
     white-space: pre-wrap;
 `;
 
+const BtnContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    max-width: 300px; 
+    margin-top: 16px; 
+`;
+
 function PostViewPage(props) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -62,8 +70,10 @@ function PostViewPage(props) {
                     <TitleText>{selectRowData.title}</TitleText>
                     <ContentText>{selectRowData.content}</ContentText>
                 </PostContainer>
+                
+                <BtnContainer>
                 <Button
-                    title='뒤로 가기'
+                    title='목록보기'
                     onClick={() => {
                         navigate('/');
                     }}
@@ -76,6 +86,7 @@ function PostViewPage(props) {
                     title='삭제하기'
                     onClick={handleDelete}
                 />
+                </BtnContainer>
             </Container>
         </Wrapper>
     );
