@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { dataUpdate } from '../../redux/modules/boardReducer';
@@ -29,12 +29,22 @@ const Container = styled.div`
 function PostEditPage(props) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
+    
     const { selectRowData } = useSelector(state => state.boardReducer);
     const [title, setTitle] = useState(selectRowData.title);
     const [content, setContent] = useState(selectRowData.content);
-
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    
+    useEffect(() => {
+        setIsButtonDisabled(title === '' || content === '');
+    }, [title, content]);
+    
     const onSave = () => {
+        if ( title.length <10 ) {
+            alert('제목은 10글자 이상이어야 합니다.');
+            return;
+        }
+
         const _inputData = {
             id: selectRowData.id,
             title: title,
@@ -60,8 +70,9 @@ function PostEditPage(props) {
                     onChange={(e) => setContent(e.target.value)}
                 />
                 <Button
-                    title='저장'
+                    title='수정하기'
                     onClick={onSave}
+                    disabled={isButtonDisabled}
                 />
             </Container>
         </Wrapper>

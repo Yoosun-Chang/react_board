@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { dataSave } from '../../redux/modules/boardReducer';
@@ -31,10 +31,20 @@ function PostWritePage(props) {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        setIsButtonDisabled(title === '' || content === '');
+    }, [title, content]);
+
     const onSave = () => {
+        if ( title.length <10 ) {
+            alert('제목은 10글자 이상이어야 합니다.');
+            return;
+        }
+
         const _inputData = {
             title: title,
             content: content
@@ -70,6 +80,7 @@ function PostWritePage(props) {
                 <Button
                     title='글 작성하기'
                     onClick={onSave}
+                    disabled={isButtonDisabled}
                 />
             </Container>
         </Wrapper>
