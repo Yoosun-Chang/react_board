@@ -22,10 +22,10 @@
   - 기능의 UX를 고려해서 UI를 자유롭게 구성해보세요. <br/>
   - 요구사항에 없어도 만들고 싶은 기능이 있다면 OK!
   </details>
-  - 게시물 조회 / 추가 / 삭제 / 수정 기능<br/>
-  - 상태관리 라이브러리 활용<br/>
-     &nbsp; &nbsp; &nbsp; &nbsp; - ex) Redux, Recoil, Redux toolkit, Mobx 등<br/>
-  - 동적 라우팅<br/>
+  - 게시물 조회 / 추가 / 삭제 / 수정 기능 ✅ <br/>
+  - 상태관리 라이브러리 활용 ✅ <br/>
+     &nbsp; &nbsp; &nbsp; &nbsp; - ex) Redux ✅, Recoil, Redux toolkit, Mobx 등<br/>
+  - 동적 라우팅 ✅ <br/>
   - 유효성 검증<br/>
       &nbsp; &nbsp; &nbsp; &nbsp;- ex) 제목을 10글자 이상 기입하지 않으면, 글을 추가할 수 없도록 제한(`Alert` 으로 안내)<br/>
       &nbsp; &nbsp; &nbsp; &nbsp;- ex) Form에서 모든 input 값을 입력하지 않으면, 버튼 비활성화<br/>
