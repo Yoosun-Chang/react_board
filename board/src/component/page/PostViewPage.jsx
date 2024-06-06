@@ -1,5 +1,3 @@
-// PostViewPage.js
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -60,6 +58,10 @@ function PostViewPage(props) {
     return (
         <Wrapper>
             <Container>
+                <PostContainer>
+                    <TitleText>{selectRowData.title}</TitleText>
+                    <ContentText>{selectRowData.content}</ContentText>
+                </PostContainer>
                 <Button
                     title='뒤로 가기'
                     onClick={() => {
@@ -74,10 +76,6 @@ function PostViewPage(props) {
                     title='삭제하기'
                     onClick={handleDelete}
                 />
-                <PostContainer>
-                    <TitleText>{selectRowData.title}</TitleText>
-                    <ContentText>{selectRowData.content}</ContentText>
-                </PostContainer>
             </Container>
         </Wrapper>
     );
