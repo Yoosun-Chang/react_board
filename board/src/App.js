@@ -22,12 +22,14 @@ const MainTitleText = styled.div `
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    z-index: 100;
 `;
 
 const TitleImage = styled.img `
     height: 50px; 
     width: auto; 
     margin: 0px 5px 20px;
+    z-index: 100;
 `;
 
 function App(props) {

@@ -39,13 +39,14 @@
 
 .wave {
   position: absolute;
-  top: -30vh;
+  top: -35vh;
   left: 50%;
   width: 200vw;
   height: 230vw;
   margin-left: -100vw;
   margin-top: -208vw;
   border-radius: 40%;
+  z-index: 0;
 }
 
 @keyframes waveAnimation {
