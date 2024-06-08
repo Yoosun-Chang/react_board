@@ -27,7 +27,7 @@ function PostList({ onClickItem }) {
     return (
         <Wrapper>
             {inputData.length === 0 ? (
-                <Message>작성된 목록이 없습니다.</Message>
+                <Message>Please add a new memo</Message>
             ) : (
                 inputData.map((rowData) => (
                     <PostListItem

@@ -26,11 +26,12 @@ const TitleText = styled.p`
     font-size: 20px;
     font-weight: 500;
     color: black;
-    max-width: 180px;
+    max-width: 200px;
     word-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-height: 90px;
 `;
 
 function PostListItem(props) {
