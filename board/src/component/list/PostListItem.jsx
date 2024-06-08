@@ -1,25 +1,36 @@
 import React from "react";
 import styled from "styled-components";
+import backgroundImage from '../../imgs/IMG_1447.jpeg';
 
 const Wrapper = styled.div`
-    width: calc(100% - 32px);
+    width: 200px;
+    height: 200px;
     padding: 16px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    border: 1px solid grey;
+    border: none;
     border-radius: 8px;
     cursor: pointer;
-    background: white;
+    background: url(${backgroundImage}) no-repeat center center;
+    background-size: cover;
     :hover {
-        background: lightgrey;
+        background: url(${backgroundImage}) no-repeat center center;
+        background-size: cover;
+        filter: brightness(0.8); 
     }
 `;
 
 const TitleText = styled.p`
     font-size: 20px;
     font-weight: 500;
+    color: black;
+    max-width: 180px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `;
 
 function PostListItem(props) {

@@ -8,11 +8,13 @@ import Button from '../ui/Button';
 
 const Wrapper = styled.div`
     padding: 16px;
-    width: calc(100% - 32px);
+    width: 110wh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    background-color: aliceblue;
 `;
 
 const Container = styled.div`
@@ -63,14 +65,16 @@ function PostEditPage(props) {
                     height={20}
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
+                    placeholder="제목"
                 />
                 <TextInput
                     height={380}
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
+                    placeholder="내용"
                 />
                 <Button
-                    title='수정하기'
+                    title='EDIT'
                     onClick={onSave}
                     disabled={isButtonDisabled}
                 />

@@ -7,15 +7,17 @@ import { dataDelete } from '../../redux/modules/boardReducer';
 
 const Wrapper = styled.div`
     padding: 16px;
-    width: calc(100% - 32px);
+    height: 100vh;
+    width: 110wh;
+    background-color: aliceblue;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start
 `;
 
 const Container = styled.div`
-    width: 100%;
+    width: 100%;    
     max-width: 720px;
 
     :not(:last-child) {
@@ -25,7 +27,8 @@ const Container = styled.div`
 
 const PostContainer = styled.div`
     padding: 8px 16px;
-    border: 1px solid grey;
+    border: 3px solid pink;
+    background-color: white;
     border-radius: 8px;
 `;
 
@@ -73,17 +76,17 @@ function PostViewPage(props) {
                 
                 <BtnContainer>
                 <Button
-                    title='목록보기'
+                    title='HOME'
                     onClick={() => {
                         navigate('/');
                     }}
                 />
                 <Button
-                    title='수정하기'
+                    title='EDIT'
                     onClick={handleEdit}
                 />
                 <Button
-                    title='삭제하기'
+                    title='DELETE'
                     onClick={handleDelete}
                 />
                 </BtnContainer>

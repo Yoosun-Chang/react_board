@@ -8,11 +8,13 @@ import Button from '../ui/Button';
 
 const Wrapper = styled.div`
     padding: 16px;
-    width: calc(100% - 32px);
+    width: 100wh;
+    height: 100vh;
+    background-color: aliceblue;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 `;
 
 const Container = styled.div`
@@ -70,12 +72,14 @@ function PostWritePage(props) {
                     height={20}
                     value={title}
                     onChange={handleTitle}
+                    placeholder="제목"
                 />
 
                 <TextInput
                     height={380}
                     value={content}
                     onChange={handleContent}
+                    placeholder="내용"
                 />
                 <Button
                     title='글 작성하기'

@@ -1,27 +1,45 @@
 import React from "react";
-import {
-    BrowserRouter,
-    Routes,
-    Route
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import MainPage from './component/page/MainPage';
 import PostWritePage from './component/page/PostWritePage';
 import PostViewPage from './component/page/PostViewPage';
 import PostEditPage from './component/page/PostEditPage';
+import titleImage1 from '../src/imgs/IMG_1234.png';
+import titleImage2 from '../src/imgs/IMG_1445.png';
 
-const MainTitleText = styled.p`
+
+const TextContainer = styled.div`
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    width: 100wh;
+`;
+
+const MainTitleText = styled.div`
     font-size: 24px;
     font-weight: bold;
     text-align: center;
 `;
 
+const TitleImage = styled.img`
+    height: 50px; 
+    width: auto; 
+    margin: 0px 5px 20px;
+`;
+
 function App(props) {
     return (
         <BrowserRouter>
-            <MainTitleText>게시판</MainTitleText>
+            <TextContainer>
+            <TitleImage src={titleImage1} alt="Title" />
+                <MainTitleText>MEMO BOARD</MainTitleText>
+                <TitleImage src={titleImage2} alt="Title" />
+            </TextContainer>
             <Routes>
-                <Route index element={<MainPage />} />
+                <Route index="index" element={<MainPage />} />
                 <Route path="post-write" element={<PostWritePage />} />
                 <Route path="post/:postId" element={<PostViewPage />} />
                 <Route path="post-edit/:postId" element={<PostEditPage />} />

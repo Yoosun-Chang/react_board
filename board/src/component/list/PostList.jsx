@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 
 const Wrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
-
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     :not(:last-child) {
         margin-bottom: 16px;
     }

@@ -9,11 +9,12 @@ import { selectRow } from '../../redux/modules/boardReducer'
 
 const Wrapper = styled.div`
     padding: 16px;
-    width: calc(100% - 32px);
+    width: 100wh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    background-color: aliceblue;
+    height: 100vh;
 `;
 
 const Container = styled.div`
@@ -38,7 +39,7 @@ function MainPage(props) {
         <Wrapper>
             <Container>
                 <Button
-                    title='글 작성하기'
+                    title='Post MEMO'
                     onClick={() => {
                         navigate('/post-write');
                     }}
