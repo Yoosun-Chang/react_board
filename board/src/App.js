@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import '../src/App.css'
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import styled from "styled-components";
 import MainPage from './component/page/MainPage';
 import PostWritePage from './component/page/PostWritePage';
@@ -8,8 +9,7 @@ import PostEditPage from './component/page/PostEditPage';
 import titleImage1 from '../src/imgs/IMG_1234.png';
 import titleImage2 from '../src/imgs/IMG_1445.png';
 
-
-const TextContainer = styled.div`
+const TextContainer = styled.div `
     background-color: aliceblue;
     display: flex;
     justify-content: center;
@@ -18,13 +18,13 @@ const TextContainer = styled.div`
     width: 100wh;
 `;
 
-const MainTitleText = styled.div`
+const MainTitleText = styled.div `
     font-size: 24px;
     font-weight: bold;
     text-align: center;
 `;
 
-const TitleImage = styled.img`
+const TitleImage = styled.img `
     height: 50px; 
     width: auto; 
     margin: 0px 5px 20px;
@@ -34,15 +34,18 @@ function App(props) {
     return (
         <BrowserRouter>
             <TextContainer>
-            <TitleImage src={titleImage1} alt="Title" />
+                <div class="wave -one"></div>
+                <div class="wave -two"></div>
+                <div class="wave -three"></div>
+                <TitleImage src={titleImage1} alt="Title"/>
                 <MainTitleText>MEMO BOARD</MainTitleText>
-                <TitleImage src={titleImage2} alt="Title" />
+                <TitleImage src={titleImage2} alt="Title"/>
             </TextContainer>
             <Routes>
-                <Route index="index" element={<MainPage />} />
-                <Route path="post-write" element={<PostWritePage />} />
-                <Route path="post/:postId" element={<PostViewPage />} />
-                <Route path="post-edit/:postId" element={<PostEditPage />} />
+                <Route index="index" element={<MainPage />}/>
+                <Route path="post-write" element={<PostWritePage />}/>
+                <Route path="post/:postId" element={<PostViewPage />}/>
+                <Route path="post-edit/:postId" element={<PostEditPage />}/>
             </Routes>
         </BrowserRouter>
     );
