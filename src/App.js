@@ -34,7 +34,7 @@ const TitleImage = styled.img `
 
 function App(props) {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <TextContainer>
                 <div class="wave -one"></div>
                 <div class="wave -two"></div>
@@ -43,7 +43,7 @@ function App(props) {
                 <MainTitleText>MEMO BOARD</MainTitleText>
                 <TitleImage src={titleImage2} alt="Title"/>
             </TextContainer>
-            <Routes>
+            <Routes >
                 <Route index="index" element={<MainPage />}/>   
                 <Route path="post-write" element={<PostWritePage />}/>
                 <Route path="post/:postId" element={<PostViewPage />}/>
