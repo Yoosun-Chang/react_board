@@ -44,7 +44,7 @@ function App(props) {
                 <TitleImage src={titleImage2} alt="Title"/>
             </TextContainer>
             <Routes>
-                <Route index="index" element={<MainPage />}/>
+                <Route index="index" element={<MainPage />}/>   
                 <Route path="post-write" element={<PostWritePage />}/>
                 <Route path="post/:postId" element={<PostViewPage />}/>
                 <Route path="post-edit/:postId" element={<PostEditPage />}/>
